@@ -98,7 +98,7 @@ ASN 200向相邻的AS 20和30发送BGP通告。
 
 此时为正常的状态。
 
-![image-20200712080822393](C:\Users\root\AppData\Roaming\Typora\typora-user-images\image-20200712080822393.png)
+![image-20200712080822393](Google DNS劫持背后的技术分析-bgp.assets/image-20200712080822393.png)
 
 攻击者控制了AS 100的BGP路由。
 
@@ -110,7 +110,7 @@ AS 100的路由表和BGP表显示到达
 
 于是我们把AS10，20和200加入我们的AS PATH prepend list
 
-![image-20200712080841962](C:\Users\root\AppData\Roaming\Typora\typora-user-images\image-20200712080841962.png)
+![image-20200712080841962](Google DNS劫持背后的技术分析-bgp.assets/image-20200712080841962.png)
 
 通过route-map把目标IP段加入BGP路由表
 
@@ -128,7 +128,7 @@ AS 100的路由表和BGP表显示到达
 
 `ip route 10.10.220.0 255.255.255.0 4.3.2.1`
 
-![image-20200712080919393](C:\Users\root\AppData\Roaming\Typora\typora-user-images\image-20200712080919393.png)
+![image-20200712080919393](Google DNS劫持背后的技术分析-bgp.assets/image-20200712080919393.png)
 
 完成后可以看出，AS30 40 50 60的数据包如果想要到AS 200去，都会先经过AS 100.
 
